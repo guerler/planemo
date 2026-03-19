@@ -6,6 +6,11 @@ History
 .. to_doc
 
 ---------------------
+0.75.42.dev0
+---------------------
+
+
+---------------------
 0.75.41 (2026-03-19)
 ---------------------
 * Fix workflow lint crash when tool_state is dict instead of JSON string (thanks to `@jmchilton`_). `Pull Request 1626`_
