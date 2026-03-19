@@ -6,8 +6,9 @@ History
 .. to_doc
 
 ---------------------
-0.75.41.dev0
+0.75.41 (2026-03-19)
 ---------------------
+* Fix workflow lint crash when tool_state is dict instead of JSON string (thanks to `@jmchilton`_). `Pull Request 1626`_
 
 
 ---------------------
@@ -2355,6 +2356,7 @@ History
   tools - and more experimental features involving Docker and Homebrew. 7d07782_
 
 .. github_links
+.. _Pull Request 1626: https://github.com/galaxyproject/planemo/pull/1626
 .. _Pull Request 1624: https://github.com/galaxyproject/planemo/pull/1624
 .. _Pull Request 1568: https://github.com/galaxyproject/planemo/pull/1568
 .. _Pull Request 1617: https://github.com/galaxyproject/planemo/pull/1617
