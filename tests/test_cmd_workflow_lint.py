@@ -171,6 +171,25 @@ class CmdWorkflowLintTestCase(CliTestCase):
         for warning in warnings:
             assert warning in result.output
 
+    def test_best_practices_linting_ga_dict_tool_state(self):
+        workflow_path = "/".join((TEST_DATA_DIR, "wf14-unlinted-best-practices-dict-tool-state.ga"))
+        lint_cmd = ["workflow_lint", workflow_path]
+        result = self._runner.invoke(self._cli.planemo, lint_cmd)
+
+        warnings = [
+            "Workflow is not annotated.",
+            "Workflow does not specify a creator.",
+            "Workflow does not specify a license.",
+            "Workflow step with ID 0 has no annotation.",
+            "Workflow step with ID 0 has no label.",
+            "Workflow missing test cases.",
+            "Workflow step with ID 1 specifies an untyped parameter as an input.",
+            "Workflow step with ID 1 specifies an untyped parameter in the post-job actions.",
+        ]
+
+        for warning in warnings:
+            assert warning in result.output
+
     def test_author_identifier_best_practices_linting_ga(self):
         workflow_path = "/".join((TEST_DATA_DIR, "wf19-unlinted-author-identifier-best-practices.ga"))
         lint_cmd = ["workflow_lint", workflow_path]
