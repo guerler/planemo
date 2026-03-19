@@ -269,7 +269,11 @@ def _lint_best_practices(path: str, lint_context: WorkflowLintContext) -> None: 
             tool_state = step.get("tool_state", {})
             pjas = step.get("out", {})
         else:
-            tool_state = json.loads(step.get("tool_state", "{}"))
+            raw_tool_state = step.get("tool_state", {})
+            if isinstance(raw_tool_state, str):
+                tool_state = json.loads(raw_tool_state)
+            else:
+                tool_state = raw_tool_state
             pjas = step.get("post_job_actions", {})
 
         if check_json_for_untyped_params(tool_state):
